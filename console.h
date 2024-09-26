@@ -3,6 +3,8 @@
 #include "timehandling.h"
 #include "color.h"
 
+#include <string>
+
 //=====================================================================================
 template < typename T, int N >
 class WrapHistory
