@@ -16,7 +16,6 @@
 
 #include <windows.h>
 #include <gl/gl.h>
-#include <detours.h>
 
 #include "engine/wrect.h"
 #include "engine/cl_dll.h"

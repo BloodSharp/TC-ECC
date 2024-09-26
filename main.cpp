@@ -1,6 +1,6 @@
 //==================================================================================
 #include <windows.h>
-#include <detours.h>
+#include "Detours/src/detours.h"
 #include "clientHooking.h"
 #include "cvar.h"
 //==================================================================================
@@ -26,13 +26,18 @@ void HookFunctions(void)
 {
 	//patch the engine
 	PatchEngine();
-	QueryPerformanceCounterOrg = (g_QPC)DetourFunction((LPBYTE)DetourFindFunction("Kernel32.dll", "QueryPerformanceCounter"), (LPBYTE)QueryPerformanceCounterNew);
+	DetourTransactionBegin();
+	QueryPerformanceCounterOrg = (g_QPC)DetourFindFunction("Kernel32.dll", "QueryPerformanceCounter");
+	DetourAttach(&(PVOID&)QueryPerformanceCounterOrg, (PVOID)QueryPerformanceCounterNew);
+	DetourTransactionCommit();
 	HookGLFunctions();
 }
 //==================================================================================
 void UnHookFunctions(void)
 {
-	DetourRemove((LPBYTE)QueryPerformanceCounterOrg, (LPBYTE)QueryPerformanceCounterNew);
+	DetourTransactionBegin();
+	DetourDetach(&(PVOID&)QueryPerformanceCounterOrg, (PVOID)QueryPerformanceCounterNew);
+	DetourTransactionCommit();
 	UnHookGLFunctions();
 }
 //==================================================================================

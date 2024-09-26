@@ -2,7 +2,7 @@
 // New OpenGL Hook ( Detours ) - Hysteria
 //==================================================================================
 #include <windows.h>
-#include <detours.h>
+#include "Detours/src/detours.h"
 #include <gl/gl.h>
 #include "cvar.h"
 #include "players.h"
@@ -133,23 +133,37 @@ void APIENTRY New_wglSwapBuffers (HDC hDC)
 //==================================================================================
 void HookGLFunctions(void)
 {
-#define Hook(name) Org_##name = (g_##name)DetourFunction((LPBYTE)DetourFindFunction("opengl32.dll", ###name), (LPBYTE)New_##name);
+//#define Hook(name) Org_##name = (g_##name)DetourFunction((LPBYTE)DetourFindFunction("opengl32.dll", ###name), (LPBYTE)New_##name);
+#define Hook(name) \
+	Org_##name = (g_##name)DetourFindFunction("opengl32.dll", #name); \
+	DetourAttach(&(PVOID&)Org_##name, (PVOID)New_##name)
+
+	DetourTransactionBegin();
+
 	Hook(glBegin);
 	Hook(glBlendFunc);
 	Hook(glClear);
 	Hook(glPopMatrix);
 	Hook(glVertex3fv);
 	Hook(wglSwapBuffers);
+
+	DetourTransactionCommit();
 }
 //==================================================================================
 void UnHookGLFunctions(void)
 {
-#define UnHook(name) DetourRemove((LPBYTE)Org_##name, (LPBYTE)New_##name);
+//#define UnHook(name) DetourRemove((LPBYTE)Org_##name, (LPBYTE)New_##name);
+#define UnHook(name) DetourDetach(&(PVOID&)Org_##name, (PVOID)New_##name)
+	
+	DetourTransactionBegin();
+
 	UnHook(glBegin);
 	UnHook(glBlendFunc);
 	UnHook(glClear);
 	UnHook(glPopMatrix);
 	UnHook(glVertex3fv);
 	UnHook(wglSwapBuffers);
+
+	DetourTransactionCommit();
 }
 //==================================================================================
