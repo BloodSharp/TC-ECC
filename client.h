@@ -81,8 +81,8 @@ void HUD_UpdateClientData(client_data_t *cdata, float flTime);
 //==================================================================================
 // Engine Function Prototypes
 //==================================================================================
-HSPRITE SPR_Load ( const char *szPicName );
-void SPR_Set ( HSPRITE hPic, int r, int g, int b );
+int SPR_Load ( const char *szPicName );
+void SPR_Set ( int hPic, int r, int g, int b );
 void SPR_Draw ( int frame, int x, int y, const struct rect_s *prc );
 void SPR_DrawHoles ( int frame, int x, int y, const struct rect_s *prc );
 void SPR_DrawAdditive ( int frame, int x, int y, const struct rect_s *prc );

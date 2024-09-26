@@ -282,7 +282,7 @@ int HUD_Key_Event ( int eventcode, int keynum, const char *pszCurrentBinding )
 //==================================================================================
 // SPR_Load Engine function
 //==================================================================================
-HSPRITE SPR_Load ( const char *szPicName )
+int SPR_Load ( const char *szPicName )
 {
 	return gEngfuncs.pfnSPR_Load( szPicName );
 }
@@ -290,7 +290,7 @@ HSPRITE SPR_Load ( const char *szPicName )
 //==================================================================================
 // SPR_Set Engine Function
 //==================================================================================
-void SPR_Set ( HSPRITE hPic, int r, int g, int b )
+void SPR_Set ( int hPic, int r, int g, int b )
 {
 	return gEngfuncs.pfnSPR_Set( hPic, r, g, b );
 }
