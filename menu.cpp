@@ -17,7 +17,7 @@ cMenu gMenu;
 void cMenu::Draw(int x, int y)
 {
 	if(!Activated) return;
-	int w, h=0;
+	int i, w, h=0;
 	w = 100;
 	for(int i=0; i < Entrys.size(); i++) h+=11; // Font Size
 	gGui.window(x, y, w, h, 0.5, "Rumpelstielzchen");
