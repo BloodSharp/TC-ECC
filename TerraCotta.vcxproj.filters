@@ -13,6 +13,12 @@
       <UniqueIdentifier>{bbb7045b-d983-4b1f-b526-22ed1305765a}</UniqueIdentifier>
       <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
     </Filter>
+    <Filter Include="Source Files\Detours">
+      <UniqueIdentifier>{99238910-15cb-42bd-8cc7-a71e7eb0536e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Detours">
+      <UniqueIdentifier>{0ca234ec-6d9f-4c9d-a7e0-88360a444799}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="misc\Ade32.cpp">
@@ -102,6 +108,24 @@
     <ClCompile Include="weaponslist.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Detours\src\creatwth.cpp">
+      <Filter>Source Files\Detours</Filter>
+    </ClCompile>
+    <ClCompile Include="Detours\src\detours.cpp">
+      <Filter>Source Files\Detours</Filter>
+    </ClCompile>
+    <ClCompile Include="Detours\src\disasm.cpp">
+      <Filter>Source Files\Detours</Filter>
+    </ClCompile>
+    <ClCompile Include="Detours\src\disolx86.cpp">
+      <Filter>Source Files\Detours</Filter>
+    </ClCompile>
+    <ClCompile Include="Detours\src\image.cpp">
+      <Filter>Source Files\Detours</Filter>
+    </ClCompile>
+    <ClCompile Include="Detours\src\modules.cpp">
+      <Filter>Source Files\Detours</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Aimbot.h">
@@ -175,6 +199,12 @@
     </ClInclude>
     <ClInclude Include="weaponslist.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Detours\src\detours.h">
+      <Filter>Header Files\Detours</Filter>
+    </ClInclude>
+    <ClInclude Include="Detours\src\detver.h">
+      <Filter>Header Files\Detours</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

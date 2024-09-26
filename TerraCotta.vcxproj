@@ -39,7 +39,7 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;TerraCotta_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;TerraCotta_EXPORTS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -91,6 +91,12 @@
     <ClCompile Include="console.cpp" />
     <ClCompile Include="cSprites.cpp" />
     <ClCompile Include="cvar.cpp" />
+    <ClCompile Include="Detours\src\creatwth.cpp" />
+    <ClCompile Include="Detours\src\detours.cpp" />
+    <ClCompile Include="Detours\src\disasm.cpp" />
+    <ClCompile Include="Detours\src\disolx86.cpp" />
+    <ClCompile Include="Detours\src\image.cpp" />
+    <ClCompile Include="Detours\src\modules.cpp" />
     <ClCompile Include="drawing.cpp" />
     <ClCompile Include="gui.cpp" />
     <ClCompile Include="interpreter.cpp" />
@@ -134,6 +140,8 @@
     <ClInclude Include="console.h" />
     <ClInclude Include="cSprites.h" />
     <ClInclude Include="cvar.h" />
+    <ClInclude Include="Detours\src\detours.h" />
+    <ClInclude Include="Detours\src\detver.h" />
     <ClInclude Include="drawing.h" />
     <ClInclude Include="gui.h" />
     <ClInclude Include="interpreter.h" />
